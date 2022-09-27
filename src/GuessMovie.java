@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -27,7 +28,7 @@ public class GuessMovie {
         while (pointsLeft>0){
             System.out.print("Guess a letter: ");
             String inputLetter = scanner.next();
-            Game.checkIfInputIsLetter(inputLetter);
+            inputLetter = String.valueOf(Game.checkIfInputIsLetter(inputLetter));
             if(chosenMovie.contains(inputLetter)){
                 int indexOfRightLetter = Game.getLetterIndex(inputLetter, chosenMovie, guessedMovieName);
                 guessedMovieName = guessedMovieName.substring(0, indexOfRightLetter) + inputLetter

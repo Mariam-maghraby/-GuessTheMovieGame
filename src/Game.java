@@ -34,12 +34,12 @@ public class Game {
         return randomNumber;
     }
 
-    public static void checkIfInputIsLetter(String s){
+    public static char checkIfInputIsLetter(String s){
+        char c = s.charAt(0);
         try {
             if(s.length() > 1) {
-                throw new RuntimeException("You must input one letter at !\n");
+                throw new RuntimeException(String.format("You must input one letter at a time, so you have entered %c", c));
             }
-            char c = s.charAt(0);
             if (!(Character.isLetter(c))){
                 throw new RuntimeException("Char is not a letter!\n");
             }
@@ -47,6 +47,7 @@ public class Game {
         catch(RuntimeException re){
             System.out.print(re.getMessage());
         }
+        return c;
     }
 
     public static String hiddingChosenMovieName(String name){
